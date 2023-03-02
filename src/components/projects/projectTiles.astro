@@ -1,0 +1,25 @@
+<article class="flex justify-center">
+  <div class="relative h-min">
+    <div
+      class="absolute background -inset-0.5 opacity-50 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-lg blur-xl"
+    >
+    </div>
+    <div class="relative bg-black px-7 py-4 rounded-lg leading-none w-[400px]">
+      <slot />
+    </div>
+  </div>
+</article>
+<style lang="scss">
+  article:hover {
+    > div > .background {
+      transition: 2s;
+      opacity: 0.8;
+    }
+  }
+  article {
+    > div > .background {
+      transition: 1s;
+      opacity: 0.5;
+    }
+  }
+</style>

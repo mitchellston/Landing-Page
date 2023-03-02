@@ -1,35 +1,72 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      media="(prefers-color-schema: light)"
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon-light.svg"
+    />
+    <link
+      media="(prefers-color-schema: dark)"
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon-dark.svg"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="h-screen bg-gradient-to-b to-[#010871] from-[#070412]">
+    <main>
+      <div class="h-screen w-full overflow-auto">
+        <slot />
+      </div>
+    </main>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+<style lang="scss">
+  main {
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      z-index: -1;
+      background-image: url("data:image/svg+xml,%3Csvg fill='' width='100%' height='100%' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg  fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      transform: rotate(180deg);
+      opacity: 0.1;
+      // background-color: #0095ff;
+      animation: breathing 20s ease-in-out infinite;
+    }
+    @keyframes breathing {
+      0% {
+        opacity: 0.1;
+        transform: rotate(180deg) scale(1);
+      }
+      50% {
+        opacity: 0.2;
+        transform: rotate(180deg) scale(1.1);
+      }
+      100% {
+        opacity: 0.1;
+        transform: rotate(180deg) scale(1);
+      }
+    }
+  }
 </style>

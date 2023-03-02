@@ -1,81 +1,148 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import MailtoIcon from "../assets/icons/socials/mailto.svg.astro";
+import GithubIcon from "../assets/icons/socials/github.svg.astro";
+import LinkedinIcon from "../assets/icons/socials/linkedin.svg.astro";
+import LinkIcon from "../assets/icons/link.svg.astro";
+import Link from "../components/nav/link";
+import ProjectTile from "../components/projects/projectTiles.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+<Layout title="Portfolio - Mitchell Steenwijk">
+  <section
+    class="h-full min-h-screen flex items-center justify-center p-4 align-middle text-slate-200"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-[1fr_auto] grid-rows-2 md:grid-rows-[1fr]"
+    >
+      <div class="flex justify-center items-center">
+        <svg
+          class="h-48 text-[11rem] w-[198px] md:text-[[12.4rem] md:h-[12.4rem]"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g fill="currentColor">
+            <text fill="#E2E8F0" font-size="60%" x="0%" y="60%">M</text>
+            <text fill="#ade1c2" x="40%" y="80%">/</text>
+            <text fill="#E2E8F0" font-size="60%" x="60%" y="90%">S</text></g
+          >
+        </svg>
+      </div>
+      <nav class="px-4 py-4 text-center md:py-0 md:text-left">
+        <h1 class="text-2xl text-slate-300 font-bold">
+          Mitchell Steenwijk's portfolio
+        </h1>
+        <a
+          class="text-xl text-slate-400 hover:text-slate-50 hover:font-bold ease-in-out duration-300"
+          href="/">CV</a
+        >
+        <h2 class="text-2xl text-slate-300 font-bold">Pagina's</h2>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+        <Link
+          client:idle
+          classname="text-xl cursor-pointer text-slate-400 hover:text-slate-50 hover:font-bold ease-in-out duration-300"
+          to="projects"
+          text="Projecten"
+        />
+      </nav>
+    </div>
+  </section>
+  <section
+    class="h-full flex flex-col mb-10 min-h-fit xl:mb-0 xl:justify-center p-4 align-middle text-slate-200"
+    id="projects"
+  >
+    <h2 class="text-left p-5 text-2xl text-slate-300 font-bold">Projecten</h2>
+    <div class="flex justify-center transition gap-10 xl:flex-row flex-col m-5">
+      <ProjectTile>
+        <img
+          class="float-left w-1/2 mr-2 mb-1 rounded-sm"
+          src="/projects/agenda.png"
+          loading="lazy"
+          alt="Project 1 image"
+        />
+        <h3 class="mb-2 text-xl text-slate-300 font-bold">
+          Agenda web applicatie
+        </h3>
+        <p class="text-slate-400">
+          Een applicatie gemaakt met PHP, MySQL en SolidJS (frontend framework).
+          De applicatie is een agenda waar je afspraken kan maken, bewerken en
+          verwijderen ook kun je mensen uitnodigen voor een afspraak. Iedere
+          gebruiker moet een account hebben om de applicatie te kunnen
+          gebruiken.
+        </p>
+
+        <div class="justify-center mt-4 flex gap-6">
+          <a
+            href="https://github.com/mitchellston/PHP-Agenda"
+            target="_blank"
+            class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+            ><GithubIcon className="font-normal text-white fill-white " /><span
+              >Github</span
+            ></a
+          >
+        </div>
+      </ProjectTile>
+      <ProjectTile>
+        <img
+          class="float-left w-1/2 mr-2 mb-1 rounded-sm"
+          src="/projects/databasePortfolio.png"
+          loading="lazy"
+          alt="Project 1 image"
+        />
+        <h3 class="mb-2 text-xl text-slate-300 font-bold">
+          Database portfolio creator
+        </h3>
+        <p class="text-slate-400">
+          Een web applicatie gemaakt in NextJS. De applicatie is een website
+          waar gebruikers portfolio's kunnen maken die op een database lijken.
+        </p>
+
+        <div class="justify-center mt-4 flex gap-6">
+          <a
+            href="https://github.com/mitchellston/database-portfolio"
+            target="_blank"
+            class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+            ><GithubIcon className="font-normal text-white fill-white " /><span
+              >Github</span
+            ></a
+          >
+          <a
+            href="https://portfolio-msteenwijk-livenl.vercel.app/portfolio/cldst217d0000kx08ir9rsvn9"
+            target="_blank"
+            class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+            ><LinkIcon className="font-normal text-white  " /><span
+              >Website</span
+            ></a
+          >
+        </div>
+      </ProjectTile>
+    </div>
+  </section>
+  <section
+    class="absolute left-0 bottom-0 w-full justify-center flex h-16 gap-6 p-4 text-slate-200"
+  >
+    <a
+      href="mailto:mitchellstonPackages@hotmail.com"
+      class="hover:text-slate-50 items-center text-slate-500 hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+      ><MailtoIcon className="font-normal  text-white fill-white" /><span
+        >Email</span
+      ></a
+    >
+    <a
+      href="https://github.com/mitchellston"
+      target="_blank"
+      class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+      ><GithubIcon className="font-normal text-white fill-white " /><span
+        >Github</span
+      ></a
+    >
+    <a
+      href="https://www.linkedin.com/in/mitchell-steenwijk-6b8093266/"
+      target="_blank"
+      class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+      ><LinkedinIcon className="font-normal text-black fill-white " /><span
+        >Linkedin</span
+      ></a
+    >
+  </section>
+</Layout>
