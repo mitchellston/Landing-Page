@@ -8,7 +8,10 @@ import Link from "../components/nav/link";
 import ProjectTile from "../components/projects/projectTiles.astro";
 ---
 
-<Layout title="Portfolio - Mitchell Steenwijk">
+<Layout
+  title="Portfolio - Mitchell Steenwijk"
+  description="Hallo ik ben Mitchell Steenwijk en dit is mijn portfolio website."
+>
   <section
     class="h-full min-h-screen flex items-center justify-center p-4 align-middle text-slate-200"
   >
@@ -37,83 +40,106 @@ import ProjectTile from "../components/projects/projectTiles.astro";
           href="/CV.pdf">CV</a
         >
         <h2 class="text-2xl text-slate-300 font-bold">Pagina's</h2>
-
-        <Link
-          client:idle
-          classname="text-xl cursor-pointer text-slate-400 hover:text-slate-50 hover:font-bold ease-in-out duration-300"
-          to="projects"
-          text="Projecten"
-        />
+        <div class="flex flex-col">
+          <Link
+            client:idle
+            classname="text-xl cursor-pointer text-slate-400 hover:text-slate-50 hover:font-bold ease-in-out duration-300"
+            to="self"
+            text="Wie ben ik?"
+          />
+          <Link
+            client:idle
+            classname="text-xl cursor-pointer text-slate-400 hover:text-slate-50 hover:font-bold ease-in-out duration-300"
+            to="projects"
+            text="Projecten"
+          />
+        </div>
       </nav>
     </div>
+  </section>
+  <section
+    class="h-full flex flex-col mb-10 min-h-fit xl:mb-0 xl:justify-center p-4 align-middle text-slate-200"
+    id="self"
+  >
   </section>
   <section
     class="h-full flex flex-col mb-10 min-h-fit xl:mb-0 xl:justify-center p-4 align-middle text-slate-200"
     id="projects"
   >
     <h2 class="text-left p-5 text-2xl text-slate-300 font-bold">Projecten</h2>
-    <div class="flex justify-center transition gap-10 xl:flex-row flex-col m-5">
+    <div class="flex flex-wrap justify-center transition gap-10 flex-row m-5">
       <ProjectTile>
-        <img
-          class="float-left w-1/2 mr-2 mb-1 rounded-sm"
-          src="/projects/agenda.png"
-          loading="lazy"
-          alt="Project 1 image"
-        />
-        <h3 class="mb-2 text-xl text-slate-300 font-bold">
-          Agenda web applicatie
-        </h3>
-        <p class="text-slate-400">
-          Een applicatie gemaakt met PHP, MySQL en SolidJS (frontend framework).
-          De applicatie is een agenda waar je afspraken kan maken, bewerken en
-          verwijderen ook kun je mensen uitnodigen voor een afspraak. Iedere
-          gebruiker moet een account hebben om de applicatie te kunnen
-          gebruiken.
-        </p>
-
-        <div class="justify-center mt-4 flex gap-6">
-          <a
-            href="https://github.com/mitchellston/PHP-Agenda"
-            target="_blank"
-            class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
-            ><GithubIcon className="font-normal text-white fill-white " /><span
-              >Github</span
-            ></a
-          >
+        <div class="h-full flex flex-col">
+          <div class="flex-grow">
+            <img
+              class="float-left w-1/2 mr-2 mb-1 rounded-sm"
+              src="/projects/agenda.png"
+              loading="lazy"
+              alt="Project 1 image"
+            />
+            <h3 class="mb-2 text-xl text-slate-300 font-bold">
+              Agenda web applicatie
+            </h3>
+            <p class="text-slate-400">
+              Een applicatie gemaakt met PHP, MySQL en SolidJS (frontend
+              framework). De applicatie is een agenda waar je afspraken kan
+              maken, bewerken en verwijderen ook kun je mensen uitnodigen voor
+              een afspraak. Iedere gebruiker moet een account hebben om de
+              applicatie te kunnen gebruiken.
+            </p>
+          </div>
+          <div>
+            <div class="justify-center mt-4 flex gap-6">
+              <a
+                href="https://github.com/mitchellston/PHP-Agenda"
+                target="_blank"
+                class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+                ><GithubIcon
+                  className="font-normal text-white fill-white "
+                /><span>Github</span></a
+              >
+            </div>
+          </div>
         </div>
       </ProjectTile>
       <ProjectTile>
-        <img
-          class="float-left w-1/2 mr-2 mb-1 rounded-sm"
-          src="/projects/databasePortfolio.png"
-          loading="lazy"
-          alt="Project 1 image"
-        />
-        <h3 class="mb-2 text-xl text-slate-300 font-bold">
-          Database portfolio creator
-        </h3>
-        <p class="text-slate-400">
-          Een web applicatie gemaakt in NextJS. De applicatie is een website
-          waar gebruikers portfolio's kunnen maken die op een database lijken.
-        </p>
-
-        <div class="justify-center mt-4 flex gap-6">
-          <a
-            href="https://github.com/mitchellston/database-portfolio"
-            target="_blank"
-            class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
-            ><GithubIcon className="font-normal text-white fill-white " /><span
-              >Github</span
-            ></a
-          >
-          <a
-            href="https://portfolio-msteenwijk-livenl.vercel.app/portfolio/cldst217d0000kx08ir9rsvn9"
-            target="_blank"
-            class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
-            ><LinkIcon className="font-normal text-white  " /><span
-              >Website</span
-            ></a
-          >
+        <div class="h-full flex flex-col">
+          <div class="flex-grow">
+            <img
+              class="float-left w-1/2 mr-2 mb-1 rounded-sm"
+              src="/projects/databasePortfolio.png"
+              loading="lazy"
+              alt="Project 1 image"
+            />
+            <h3 class="mb-2 text-xl text-slate-300 font-bold">
+              Database portfolio creator
+            </h3>
+            <p class="text-slate-400">
+              Een web applicatie gemaakt in NextJS. De applicatie is een website
+              waar gebruikers portfolio's kunnen maken die op een database
+              lijken.
+            </p>
+          </div>
+          <div>
+            <div class="justify-center mt-4 flex gap-6">
+              <a
+                href="https://github.com/mitchellston/database-portfolio"
+                target="_blank"
+                class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+                ><GithubIcon
+                  className="font-normal text-white fill-white "
+                /><span>Github</span></a
+              >
+              <a
+                href="https://portfolio-msteenwijk-livenl.vercel.app/portfolio/cldst217d0000kx08ir9rsvn9"
+                target="_blank"
+                class="hover:text-slate-50 text-slate-500 items-center hover:font-bold gap-3 uppercase ease-in-out duration-300 flex-row flex"
+                ><LinkIcon className="font-normal text-white  " /><span
+                  >Website</span
+                ></a
+              >
+            </div>
+          </div>
         </div>
       </ProjectTile>
     </div>

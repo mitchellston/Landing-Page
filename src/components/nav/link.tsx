@@ -7,7 +7,8 @@ type props = {
 const Link = ({ to, text, classname }: props) => {
   return (
     <a
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault();
         // smooth scroll to the id of the element of to
         const element = document.getElementById(to);
 
@@ -17,6 +18,7 @@ const Link = ({ to, text, classname }: props) => {
           });
         }
       }}
+      href={`#${to}`}
       class={classname}
     >
       {text}
